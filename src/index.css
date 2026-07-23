@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-brand-primary: #991b1b;
+  --color-brand-secondary: #7f1d1d;
+  --color-brand-accent: #e11d48;
+  
+  --animate-glow: glow 2s ease-in-out infinite alternate;
+}
+
+@layer base {
+  body {
+    @apply bg-[#05050C] text-slate-200 font-sans selection:bg-red-500/30;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+  }
+  
+  .glass-button {
+    @apply relative overflow-hidden transition-all duration-300 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-400 via-rose-400 to-red-600;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px -5px var(--color-brand-primary);
+  }
+  to {
+    box-shadow: 0 0 20px 2px var(--color-brand-primary);
+  }
+}
+
